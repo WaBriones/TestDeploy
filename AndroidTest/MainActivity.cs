@@ -19,18 +19,14 @@ namespace AndroidTest
 
             SetContentView(Resource.Layout.dialog);
             Button Start = FindViewById<Button>(Resource.Id.btnGetStarted);
-            Start.Click += Start_Click1;
+            Start.Click += Start_Click;
          
         }
 
-      
-
-        private void Start_Click1(object sender, EventArgs e)
+        private void Start_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(Second));
+            StartActivity(typeof(CustomerInput));
         }
-
-        
     }
 }
 

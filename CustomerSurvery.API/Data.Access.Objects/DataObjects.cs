@@ -28,7 +28,7 @@ namespace WebAPI2
             var qInfo = new Questions();
             var sb = new StringBuilder();
 
-            sb.AppendLine("SELECT * FROM dbo.Results WHERE QuestionID = @QuestionId");
+            sb.AppendLine("SELECT * FROM dbo.Questions WHERE QuestionID = @QuestionId");
 
             using (var cmd = new SqlCommand(sb.ToString(), _dbHelper.SQLConnection))
             {
@@ -49,5 +49,35 @@ namespace WebAPI2
 
             return qInfo;
         }
+
+        public List<Questions> GetAllQuestions()
+        {
+            var qInfo = new List<Questions>();
+            var sb = new StringBuilder();
+
+            sb.AppendLine("SELECT * FROM dbo.Questions");
+
+            using (var cmd = new SqlCommand(sb.ToString(), _dbHelper.SQLConnection))
+            {
+                cmd.Connection.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        qInfo.Add(new Questions
+                        {
+                            QuestionID = (int)reader["QuestionID"],
+                            Question = reader["Question"].ToString()
+
+                        });
+                    }
+
+                }
+            }
+
+            return qInfo;
+        }
+
     }
 }

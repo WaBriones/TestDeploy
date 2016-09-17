@@ -22,10 +22,15 @@ namespace WebAPI2.Controllers
         [HttpGet("{id}")]
         public Questions Get(int id)
         {
-            var quest = new Questions();
             var question = _dataObjects.GetQuestionById(id);
             return question;
+        }
 
+        [HttpGet("getall")]
+        public List<Questions> GetAllQuestions()
+        {
+            var question = _dataObjects.GetAllQuestions();
+            return question;
         }
         
     }

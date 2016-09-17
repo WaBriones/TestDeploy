@@ -100,119 +100,37 @@ namespace AndroidTest
             Choices9 = FindViewById<RadioGroup>(Resource.Id.Choices9);
             Choices10 = FindViewById<RadioGroup>(Resource.Id.Choices10);
 
-            Get1();
-            Get2();
-            Get3();
-            Get4();
-            Get5();
-            Get6();
-            Get7();
-            Get8();
-            Get9();
-            Get10();
-
-        }
-  
-        public async void Get1()
-        {
-            var request = new RestRequest("my/MyGet/{id}");
-            request.AddUrlSegment("id", "45");
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
-
-            Ques1.Text = (string.Format("{0}", result.Result.Question));
-        }
-
-        public async void Get2()
-        {
-            var request = new RestRequest("my/MyGet/question2");
-            request.AddUrlSegment("id", "45");
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
-
-            Ques2.Text = (string.Format("{0}", result.Result.Question));
-        }
-
-        public async void Get3()
-        {
-            var request = new RestRequest("my/MyGet/question3");
-            request.AddUrlSegment("id", "45");
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
-
-            Ques3.Text = (string.Format("{0}", result.Result.Question));
-        }
-
-        public async void Get4()
-        {
-            var request = new RestRequest("my/MyGet/question4");
-           
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
-
-            Ques4.Text = (string.Format("{0}", result.Result.Question));
-        }
-
-        public async void Get5()
-        {
-            var request = new RestRequest("my/MyGet/question5");
-           
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
-
-            Ques5.Text = (string.Format("{0}", result.Result.Question));
-        }
-
-        public async void Get6()
-        {
-            var request = new RestRequest("my/MyGet/question6");
-           
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
-
-            Ques6.Text = (string.Format("{0}", result.Result.Question));
-        }
-
-        public async void Get7()
-        {
-            var request = new RestRequest("my/MyGet/question7");
+            GetAll();
           
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
 
-            Ques7.Text = (string.Format("{0}", result.Result.Question));
         }
 
-        public async void Get8()
+        public async void GetAll()
         {
-            var request = new RestRequest("my/MyGet/question8");
-          
+            var request = new RestRequest("questions/getall");
             var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
+            var result = questService.ExecuteAsync<List<Questions>>(request);
 
-            Ques8.Text = (string.Format("{0}", result.Result.Question));
+            foreach (var question in result.Result)
+            {
+                
+                switch (question.QuestionID)
+                {
+                    case 1: Ques1.Text = string.Format("{0}", question.Question); break;
+                    case 2: Ques2.Text = string.Format("{0}", question.Question); break;
+                    case 3: Ques3.Text = string.Format("{0}", question.Question); break;
+                    case 4: Ques4.Text = string.Format("{0}", question.Question); break;
+                    case 5: Ques5.Text = string.Format("{0}", question.Question); break;
+                    case 6: Ques6.Text = string.Format("{0}", question.Question); break;
+                    case 7: Ques7.Text = string.Format("{0}", question.Question); break;
+                    case 8: Ques8.Text = string.Format("{0}", question.Question); break;
+                    case 9: Ques9.Text = string.Format("{0}", question.Question); break;
+                    case 10: Ques10.Text = string.Format("{0}", question.Question); break;
+                }
+            }
         }
 
-        public async void Get9()
-        {
-            var request = new RestRequest("my/MyGet/question9");
-            
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
 
-            Ques9.Text = (string.Format("{0}", result.Result.Question));
-        }
-
-        public async void Get10()
-        {
-            var request = new RestRequest("my/MyGet/question10");
-           
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<Questions>(request);
-
-            Ques10.Text = (string.Format("{0}", result.Result.Question));
-        }
-    
 
         private void Procceed_Click(object sender, EventArgs e)
         {

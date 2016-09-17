@@ -1,26 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Net;
-using System.Text;
-using MySql;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using AndroidTest.Resources.Objects;
-using MySql.Data.MySqlClient;
-using System.Data;
 using RestSharp;
 using AndroidTest.Service;
+using Data.Models;
 
 namespace AndroidTest
 {
-    
-   
+
+
 
     [Activity(Label = "CustomerInput")]
     public class CustomerInput : Activity
@@ -51,7 +41,7 @@ namespace AndroidTest
            
           
             RadioButton sex =FindViewById<RadioButton>(rGender.CheckedRadioButtonId);
-            var CustInfo = new CustomerInfo()
+            var CustInfo = new Customer()
             {
                 Name = txtName.Text,
                 Age = int.Parse(txtAge.Text)
@@ -70,23 +60,25 @@ namespace AndroidTest
             {
                 CustInfo.Gender = rbtnFemale.Text;
             }
-            
+
+            var a = Insert(CustInfo);
         }
 
-        public async void Insert()
+        public bool Insert(Customer customer)
         {
-            var request = new RestRequest("my/MyGet/customerInfo");
+            var request = new RestRequest("post/customerInsert")
+            {
+                Method = Method.POST,
+                RequestFormat = DataFormat.Json
+
+            };
+            request.AddJsonBody(customer);
 
             var questService = new CustomerService();
-            var result = questService.ExecuteAsync<CustomerInfo>(request);
+            var result = questService.ExecuteAsync<bool>(request);
 
-
-
-            //var respone = new RestResponse<CustomerInfo>()
-
-
-
-            //Ques4.Text = (string.Format("{0}", result.Result.Question));
+            return result.Result;
+            
         }
 
     }

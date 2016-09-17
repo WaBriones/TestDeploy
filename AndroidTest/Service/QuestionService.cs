@@ -16,7 +16,7 @@ namespace AndroidTest.Service
     {
         public QuestionService()
         {
-            BaseUrl = string.Format("http://10.0.2.2:8085/api");
+            BaseUrl = string.Format("http://customersurveryapi.azurewebsites.net/api");
         }
 
         

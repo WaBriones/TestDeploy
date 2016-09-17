@@ -18,26 +18,19 @@ namespace WebAPI2.Controllers
         {
             _postObjects = postObjects;
         }
-        // POST api/values
-        [HttpPost("MyPost/customerInfo")]
-        public void Post([FromBody]string value)
+        
+        [HttpPost("customerInsert")]
+        public bool Post([FromBody] Customer customer)
         {
-            var customer = new Customer();
             var ins = _postObjects.InsertCustomer(customer);
-
-            return;
+            return ins;
         }
 
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        [HttpGet("getallcustomers")]
+        public List<Customer> GetAllCustomers()
+        {
+            return _postObjects.GetAllCustomers();
+        }
 
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

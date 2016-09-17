@@ -36,5 +36,33 @@ namespace WebAPI2.Data.Access.Objects
             return result > 0;
         }
 
+        public List<Customer> GetAllCustomers()
+        {
+            var sb = new StringBuilder();
+            var customerList = new List<Customer>();
+            sb.AppendLine("SELECT * FROM dbo.CustomerInfo");
+
+            using(var cmd = new SqlCommand(sb.ToString(), _dbhelper.SQLConnection))
+            {
+                cmd.Connection.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        customerList.Add(new Customer
+                        {
+                            CustomerID = (int)reader["CustomerID"],
+                            Name = reader["Name"].ToString(),
+                            Age = (int)reader["Age"],
+                            Gender = reader["Gender"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return customerList;
+        }
+
     }
 }
