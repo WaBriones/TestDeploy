@@ -169,12 +169,6 @@ namespace AndroidTest
             datas.Question20 = edit20.Text;
 
 
-
-
-
-
-
-
             StartActivity(typeof(Fourth));
            
             

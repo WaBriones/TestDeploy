@@ -61,6 +61,8 @@ namespace AndroidTest
             }
 
             var a = Insert(CustInfo);
+
+            StartActivity(typeof(Second));
         }
 
         public bool Insert(Customer customer)

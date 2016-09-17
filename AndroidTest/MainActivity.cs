@@ -25,7 +25,7 @@ namespace AndroidTest
 
         private void Start_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(Second));
+            StartActivity(typeof(CustomerInput));
         }
     }
 }
