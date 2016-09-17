@@ -303,7 +303,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/Choices29"
                     android:layout_below="@id/Quest29"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="0.0dp">
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -314,7 +314,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Likely"
-                        android:id="@+id/b9" />
+                        android:id="@+id/b29" />
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -346,7 +346,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/Choices30"
                     android:layout_below="@id/Quest30"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginRight="0.0dp">
                     <RadioButton
                         android:layout_width="wrap_content"

@@ -1,16 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using AndroidTest.Service;
 using Data.Models;
+using DataModels;
 using RestSharp;
 
 namespace AndroidTest
@@ -126,6 +122,7 @@ namespace AndroidTest
                     case 8: Ques8.Text = string.Format("{0}", question.Question); break;
                     case 9: Ques9.Text = string.Format("{0}", question.Question); break;
                     case 10: Ques10.Text = string.Format("{0}", question.Question); break;
+                    
                 }
             }
         }
@@ -134,21 +131,100 @@ namespace AndroidTest
 
         private void Procceed_Click(object sender, EventArgs e)
         {
-            RadioButton chk1 = FindViewById<RadioButton>(Choices1.CheckedRadioButtonId);
-            RadioButton chk2 = FindViewById<RadioButton>(Choices2.CheckedRadioButtonId);
-            RadioButton chk3 = FindViewById<RadioButton>(Choices3.CheckedRadioButtonId);
-            RadioButton chk4 = FindViewById<RadioButton>(Choices4.CheckedRadioButtonId);
-            RadioButton chk5 = FindViewById<RadioButton>(Choices5.CheckedRadioButtonId);
-            RadioButton chk6 = FindViewById<RadioButton>(Choices6.CheckedRadioButtonId);
-            RadioButton chk7 = FindViewById<RadioButton>(Choices7.CheckedRadioButtonId);
-            RadioButton chk8 = FindViewById<RadioButton>(Choices8.CheckedRadioButtonId);
-            RadioButton chk9 = FindViewById<RadioButton>(Choices9.CheckedRadioButtonId);
-            RadioButton chk10 = FindViewById<RadioButton>(Choices10.CheckedRadioButtonId);
+
+
+            var datas = new SurveyData();
+
+
+            if (a.Text == "" | a2.Text == "" | a3.Text == "" | a4.Text == "" | a5.Text == "" | a6.Text == "" | a7.Text == "" | a8.Text == "" |
+                a9.Text == "" | a10.Text == "" | b.Text == "" | b2.Text == "" | b3.Text == "" | b4.Text == "" | b5.Text == "" | b6.Text == "" |
+                b7.Text == "" | b8.Text == "" | b9.Text == "" | b10.Text == "" | c.Text == "" | c2.Text == "" | c3.Text == "" | c4.Text == "" |
+                c5.Text == "" | c6.Text == "" | c7.Text == "" | c8.Text == "" | c9.Text == "" | c10.Text == "" | d.Text == "" | d2.Text == "" |
+                d3.Text == "" | d4.Text == "" | d6.Text == "" | e2.Text == "" | e4.Text == "" | e6.Text == "" )
+            {
+                Toast.MakeText(this, "Please answer evrything", ToastLength.Short).Show();
+            }
+            else if (a.Checked)  {datas.Question1 = a.Text;}
+            else if (b.Checked) { datas.Question1 = b.Text;}
+            else if (c.Checked) { datas.Question1 = c.Text;}
+            else if (d.Checked) { datas.Question1 = d.Text;}
+
+                if (a2.Checked) { datas.Question2 = a2.Text; }
+            else if (b2.Checked) { datas.Question2 = b2.Text; }
+            else if (c2.Checked) { datas.Question2 = c2.Text; }
+            else if (d2.Checked) { datas.Question2 = d2.Text; }
+            else if (e2.Checked) { datas.Question2 = e2.Text; }
+
+                 if (a3.Checked) { datas.Question3 = a3.Text; }
+            else if (b3.Checked) { datas.Question3 = b3.Text; }
+            else if (c3.Checked) { datas.Question3 = c3.Text; }
+            else if (d3.Checked) { datas.Question3 = d3.Text; }
+
+                 if (a4.Checked) { datas.Question4 = a4.Text; }
+            else if (b4.Checked) { datas.Question4 = b4.Text; }
+            else if (c4.Checked) { datas.Question4 = c4.Text; }
+            else if (d4.Checked) { datas.Question4 = d4.Text; }
+            else if (e4.Checked) { datas.Question4 = e4.Text; }
+
+                if (a5.Checked) { datas.Question5 = a5.Text; }
+            else if (b5.Checked) { datas.Question5 = b5.Text; }
+            else if (c5.Checked) { datas.Question5 = c5.Text; }
+
+                if (a6.Checked) { datas.Question6 = a6.Text; }
+            else if (b6.Checked) { datas.Question6 = b6.Text; }
+            else if (c6.Checked) { datas.Question6 = c6.Text; }
+            else if (d6.Checked) { datas.Question6 = d6.Text; }
+            else if (e6.Checked) { datas.Question6 = e6.Text; }
+
+                 if (a7.Checked) { datas.Question7 = a7.Text; }
+            else if (b7.Checked) { datas.Question7 = b7.Text; }
+            else if (c7.Checked) { datas.Question7 = c7.Text; }
+
+                  if (a8.Checked) { datas.Question8 = a8.Text; }
+            else if (b8.Checked) { datas.Question8 = b8.Text; }
+            else if (c8.Checked) { datas.Question8 = c8.Text; }
+
+                if (a9.Checked) { datas.Question9 = a9.Text; }
+            else if (b9.Checked) { datas.Question9 = b9.Text; }
+            else if (c9.Checked) { datas.Question9 = c9.Text; }
+
+                  if (a10.Checked) { datas.Question10 = a10.Text;}
+            else if (b10.Checked) { datas.Question10 = b10.Text; }
+            else if (c10.Checked) { datas.Question10 = c10.Text; }
+
+
+            var res = surveyData(datas);
 
 
             StartActivity(typeof(Third));
         }
-       
 
+        private bool surveyData(SurveyData datas)
+        {
+            var request = new RestRequest("post/insertData")
+            {
+                Method = Method.POST,
+                RequestFormat = DataFormat.Json
+
+            };
+            request.AddJsonBody(datas);
+
+            var questService = new CustomerService();
+            var result = questService.ExecuteAsync<bool>(request);
+
+            return result.Result;
+        }
     }
 }
+
+
+//RadioButton chk1 = FindViewById<RadioButton>(Choices1.CheckedRadioButtonId);
+//RadioButton chk2 = FindViewById<RadioButton>(Choices2.CheckedRadioButtonId);
+//RadioButton chk3 = FindViewById<RadioButton>(Choices3.CheckedRadioButtonId);
+//RadioButton chk4 = FindViewById<RadioButton>(Choices4.CheckedRadioButtonId);
+//RadioButton chk5 = FindViewById<RadioButton>(Choices5.CheckedRadioButtonId);
+//RadioButton chk6 = FindViewById<RadioButton>(Choices6.CheckedRadioButtonId);
+//RadioButton chk7 = FindViewById<RadioButton>(Choices7.CheckedRadioButtonId);
+//RadioButton chk8 = FindViewById<RadioButton>(Choices8.CheckedRadioButtonId);
+//RadioButton chk9 = FindViewById<RadioButton>(Choices9.CheckedRadioButtonId);
+//RadioButton chk10 = FindViewById<RadioButton>(Choices10.CheckedRadioButtonId);

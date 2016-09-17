@@ -2,7 +2,6 @@ using System;
 using Android.App;
 using Android.OS;
 using Android.Widget;
-using AndroidTest.Resources.Objects;
 using RestSharp;
 using AndroidTest.Service;
 using Data.Models;

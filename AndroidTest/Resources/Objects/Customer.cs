@@ -1,22 +1,21 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
-namespace AndroidTest.Resources.Objects
+namespace Data.Models
 {
-    class CustomerInfo
+    public class Customer
     {
         public int CustomerID { get; set; }
+
         public string Name { get; set; }
+
         public int Age { get; set; }
+
         public string Gender { get; set; }
+       
     }
+   
 }

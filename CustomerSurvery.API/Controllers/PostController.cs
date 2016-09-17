@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Data.Models;
+using CustomerSurvery.API.BusinessObjects;
 using Microsoft.AspNet.Mvc;
 using WebAPI2.Data.Access.Objects;
 
@@ -31,6 +31,15 @@ namespace WebAPI2.Controllers
         {
             return _postObjects.GetAllCustomers();
         }
+
+        [HttpPost("insertData")]
+        public bool Post([FromBody] SurveyData data)
+        {
+            var insdata = _postObjects.InsertData(data);
+            return insdata;
+        }
+
+
 
     }
 }

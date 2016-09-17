@@ -69,7 +69,9 @@
     <Compile Include="Dialog.cs" />
     <Compile Include="Fourth.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Resources\Objects\CustomerInfo.cs" />
+    <Compile Include="Resources\Objects\Customer.cs" />
+    <Compile Include="Resources\Objects\Questions.cs" />
+    <Compile Include="Resources\Objects\SurveyData.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Second.cs" />
@@ -93,6 +95,12 @@
     <AndroidResource Include="Resources\layout\dialog.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\Last.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\About.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -114,12 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\edit_text_style.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataModels\Data.Models.csproj">
-      <Project>{ea4f8acc-8bf2-4119-952c-a374f685a458}</Project>
-      <Name>Data.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\down.xml" />

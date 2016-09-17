@@ -100,26 +100,26 @@ namespace AndroidTest
 			// aapt resource value: 0x7f07003e
 			public const int Choices1 = 2131165246;
 			
-			// aapt resource value: 0x7f070072
-			public const int Choices10 = 2131165298;
+			// aapt resource value: 0x7f070073
+			public const int Choices10 = 2131165299;
 			
-			// aapt resource value: 0x7f070078
-			public const int Choices11 = 2131165304;
+			// aapt resource value: 0x7f070079
+			public const int Choices11 = 2131165305;
 			
-			// aapt resource value: 0x7f07007e
-			public const int Choices12 = 2131165310;
+			// aapt resource value: 0x7f07007f
+			public const int Choices12 = 2131165311;
 			
-			// aapt resource value: 0x7f070083
-			public const int Choices13 = 2131165315;
+			// aapt resource value: 0x7f070084
+			public const int Choices13 = 2131165316;
 			
-			// aapt resource value: 0x7f070088
-			public const int Choices14 = 2131165320;
+			// aapt resource value: 0x7f070089
+			public const int Choices14 = 2131165321;
 			
-			// aapt resource value: 0x7f07008d
-			public const int Choices15 = 2131165325;
+			// aapt resource value: 0x7f07008e
+			public const int Choices15 = 2131165326;
 			
-			// aapt resource value: 0x7f070094
-			public const int Choices16 = 2131165332;
+			// aapt resource value: 0x7f070095
+			public const int Choices16 = 2131165333;
 			
 			// aapt resource value: 0x7f070044
 			public const int Choices2 = 2131165252;
@@ -166,17 +166,17 @@ namespace AndroidTest
 			// aapt resource value: 0x7f07006e
 			public const int Choices9 = 2131165294;
 			
-			// aapt resource value: 0x7f07009b
-			public const int Edit_Quest17 = 2131165339;
+			// aapt resource value: 0x7f07009c
+			public const int Edit_Quest17 = 2131165340;
 			
-			// aapt resource value: 0x7f07009d
-			public const int Edit_Quest18 = 2131165341;
+			// aapt resource value: 0x7f07009e
+			public const int Edit_Quest18 = 2131165342;
 			
-			// aapt resource value: 0x7f07009f
-			public const int Edit_Quest19 = 2131165343;
+			// aapt resource value: 0x7f0700a0
+			public const int Edit_Quest19 = 2131165344;
 			
-			// aapt resource value: 0x7f0700a1
-			public const int Edit_Quest20 = 2131165345;
+			// aapt resource value: 0x7f0700a2
+			public const int Edit_Quest20 = 2131165346;
 			
 			// aapt resource value: 0x7f07000d
 			public const int Edit_Quest21 = 2131165197;
@@ -193,11 +193,11 @@ namespace AndroidTest
 			// aapt resource value: 0x7f07000b
 			public const int Proc = 2131165195;
 			
-			// aapt resource value: 0x7f070076
-			public const int Proc2 = 2131165302;
+			// aapt resource value: 0x7f070077
+			public const int Proc2 = 2131165303;
 			
-			// aapt resource value: 0x7f0700a2
-			public const int Proc3 = 2131165346;
+			// aapt resource value: 0x7f0700a3
+			public const int Proc3 = 2131165347;
 			
 			// aapt resource value: 0x7f07003c
 			public const int Proc4 = 2131165244;
@@ -205,41 +205,41 @@ namespace AndroidTest
 			// aapt resource value: 0x7f07003d
 			public const int Quest1 = 2131165245;
 			
-			// aapt resource value: 0x7f070071
-			public const int Quest10 = 2131165297;
+			// aapt resource value: 0x7f070072
+			public const int Quest10 = 2131165298;
 			
-			// aapt resource value: 0x7f070077
-			public const int Quest11 = 2131165303;
+			// aapt resource value: 0x7f070078
+			public const int Quest11 = 2131165304;
 			
-			// aapt resource value: 0x7f07007d
-			public const int Quest12 = 2131165309;
+			// aapt resource value: 0x7f07007e
+			public const int Quest12 = 2131165310;
 			
-			// aapt resource value: 0x7f070082
-			public const int Quest13 = 2131165314;
+			// aapt resource value: 0x7f070083
+			public const int Quest13 = 2131165315;
 			
-			// aapt resource value: 0x7f070087
-			public const int Quest14 = 2131165319;
+			// aapt resource value: 0x7f070088
+			public const int Quest14 = 2131165320;
 			
-			// aapt resource value: 0x7f07008c
-			public const int Quest15 = 2131165324;
+			// aapt resource value: 0x7f07008d
+			public const int Quest15 = 2131165325;
 			
-			// aapt resource value: 0x7f070093
-			public const int Quest16 = 2131165331;
+			// aapt resource value: 0x7f070094
+			public const int Quest16 = 2131165332;
 			
-			// aapt resource value: 0x7f07009a
-			public const int Quest17 = 2131165338;
+			// aapt resource value: 0x7f07009b
+			public const int Quest17 = 2131165339;
 			
-			// aapt resource value: 0x7f07009c
-			public const int Quest18 = 2131165340;
+			// aapt resource value: 0x7f07009d
+			public const int Quest18 = 2131165341;
 			
-			// aapt resource value: 0x7f07009e
-			public const int Quest19 = 2131165342;
+			// aapt resource value: 0x7f07009f
+			public const int Quest19 = 2131165343;
 			
 			// aapt resource value: 0x7f070043
 			public const int Quest2 = 2131165251;
 			
-			// aapt resource value: 0x7f0700a0
-			public const int Quest20 = 2131165344;
+			// aapt resource value: 0x7f0700a1
+			public const int Quest20 = 2131165345;
 			
 			// aapt resource value: 0x7f07000c
 			public const int Quest21 = 2131165196;
@@ -304,26 +304,26 @@ namespace AndroidTest
 			// aapt resource value: 0x7f07003f
 			public const int a = 2131165247;
 			
-			// aapt resource value: 0x7f070073
-			public const int a10 = 2131165299;
+			// aapt resource value: 0x7f070074
+			public const int a10 = 2131165300;
 			
-			// aapt resource value: 0x7f070079
-			public const int a11 = 2131165305;
+			// aapt resource value: 0x7f07007a
+			public const int a11 = 2131165306;
 			
-			// aapt resource value: 0x7f07007f
-			public const int a12 = 2131165311;
+			// aapt resource value: 0x7f070080
+			public const int a12 = 2131165312;
 			
-			// aapt resource value: 0x7f070084
-			public const int a13 = 2131165316;
+			// aapt resource value: 0x7f070085
+			public const int a13 = 2131165317;
 			
-			// aapt resource value: 0x7f070089
-			public const int a14 = 2131165321;
+			// aapt resource value: 0x7f07008a
+			public const int a14 = 2131165322;
 			
-			// aapt resource value: 0x7f07008e
-			public const int a15 = 2131165326;
+			// aapt resource value: 0x7f07008f
+			public const int a15 = 2131165327;
 			
-			// aapt resource value: 0x7f070095
-			public const int a16 = 2131165333;
+			// aapt resource value: 0x7f070096
+			public const int a16 = 2131165334;
 			
 			// aapt resource value: 0x7f070045
 			public const int a2 = 2131165253;
@@ -373,26 +373,26 @@ namespace AndroidTest
 			// aapt resource value: 0x7f070040
 			public const int b = 2131165248;
 			
-			// aapt resource value: 0x7f070074
-			public const int b10 = 2131165300;
+			// aapt resource value: 0x7f070075
+			public const int b10 = 2131165301;
 			
-			// aapt resource value: 0x7f07007a
-			public const int b11 = 2131165306;
+			// aapt resource value: 0x7f07007b
+			public const int b11 = 2131165307;
 			
-			// aapt resource value: 0x7f070080
-			public const int b12 = 2131165312;
+			// aapt resource value: 0x7f070081
+			public const int b12 = 2131165313;
 			
-			// aapt resource value: 0x7f070085
-			public const int b13 = 2131165317;
+			// aapt resource value: 0x7f070086
+			public const int b13 = 2131165318;
 			
-			// aapt resource value: 0x7f07008a
-			public const int b14 = 2131165322;
+			// aapt resource value: 0x7f07008b
+			public const int b14 = 2131165323;
 			
-			// aapt resource value: 0x7f07008f
-			public const int b15 = 2131165327;
+			// aapt resource value: 0x7f070090
+			public const int b15 = 2131165328;
 			
-			// aapt resource value: 0x7f070096
-			public const int b16 = 2131165334;
+			// aapt resource value: 0x7f070097
+			public const int b16 = 2131165335;
 			
 			// aapt resource value: 0x7f070046
 			public const int b2 = 2131165254;
@@ -411,6 +411,9 @@ namespace AndroidTest
 			
 			// aapt resource value: 0x7f07002d
 			public const int b28 = 2131165229;
+			
+			// aapt resource value: 0x7f070034
+			public const int b29 = 2131165236;
 			
 			// aapt resource value: 0x7f07004d
 			public const int b3 = 2131165261;
@@ -433,8 +436,8 @@ namespace AndroidTest
 			// aapt resource value: 0x7f07006b
 			public const int b8 = 2131165291;
 			
-			// aapt resource value: 0x7f070034
-			public const int b9 = 2131165236;
+			// aapt resource value: 0x7f070070
+			public const int b9 = 2131165296;
 			
 			// aapt resource value: 0x7f070004
 			public const int btnGetStarted = 2131165188;
@@ -442,26 +445,26 @@ namespace AndroidTest
 			// aapt resource value: 0x7f070041
 			public const int c = 2131165249;
 			
-			// aapt resource value: 0x7f070075
-			public const int c10 = 2131165301;
+			// aapt resource value: 0x7f070076
+			public const int c10 = 2131165302;
 			
-			// aapt resource value: 0x7f07007b
-			public const int c11 = 2131165307;
+			// aapt resource value: 0x7f07007c
+			public const int c11 = 2131165308;
 			
-			// aapt resource value: 0x7f070081
-			public const int c12 = 2131165313;
+			// aapt resource value: 0x7f070082
+			public const int c12 = 2131165314;
 			
-			// aapt resource value: 0x7f070086
-			public const int c13 = 2131165318;
+			// aapt resource value: 0x7f070087
+			public const int c13 = 2131165319;
 			
-			// aapt resource value: 0x7f07008b
-			public const int c14 = 2131165323;
+			// aapt resource value: 0x7f07008c
+			public const int c14 = 2131165324;
 			
-			// aapt resource value: 0x7f070090
-			public const int c15 = 2131165328;
+			// aapt resource value: 0x7f070091
+			public const int c15 = 2131165329;
 			
-			// aapt resource value: 0x7f070097
-			public const int c16 = 2131165335;
+			// aapt resource value: 0x7f070098
+			public const int c16 = 2131165336;
 			
 			// aapt resource value: 0x7f070047
 			public const int c2 = 2131165255;
@@ -502,20 +505,20 @@ namespace AndroidTest
 			// aapt resource value: 0x7f07006c
 			public const int c8 = 2131165292;
 			
-			// aapt resource value: 0x7f070070
-			public const int c9 = 2131165296;
+			// aapt resource value: 0x7f070071
+			public const int c9 = 2131165297;
 			
 			// aapt resource value: 0x7f070042
 			public const int d = 2131165250;
 			
-			// aapt resource value: 0x7f07007c
-			public const int d11 = 2131165308;
+			// aapt resource value: 0x7f07007d
+			public const int d11 = 2131165309;
 			
-			// aapt resource value: 0x7f070091
-			public const int d15 = 2131165329;
+			// aapt resource value: 0x7f070092
+			public const int d15 = 2131165330;
 			
-			// aapt resource value: 0x7f070098
-			public const int d16 = 2131165336;
+			// aapt resource value: 0x7f070099
+			public const int d16 = 2131165337;
 			
 			// aapt resource value: 0x7f070048
 			public const int d2 = 2131165256;
@@ -541,11 +544,11 @@ namespace AndroidTest
 			// aapt resource value: 0x7f070061
 			public const int d6 = 2131165281;
 			
-			// aapt resource value: 0x7f070092
-			public const int e15 = 2131165330;
+			// aapt resource value: 0x7f070093
+			public const int e15 = 2131165331;
 			
-			// aapt resource value: 0x7f070099
-			public const int e16 = 2131165337;
+			// aapt resource value: 0x7f07009a
+			public const int e16 = 2131165338;
 			
 			// aapt resource value: 0x7f070049
 			public const int e2 = 2131165257;
@@ -597,19 +600,25 @@ namespace AndroidTest
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int dialog = 2130903040;
+			public const int About = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int First = 2130903041;
+			public const int dialog = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Fourth = 2130903042;
+			public const int First = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Second = 2130903043;
+			public const int Fourth = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Third = 2130903044;
+			public const int Last = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int Second = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int Third = 2130903046;
 			
 			static Layout()
 			{
