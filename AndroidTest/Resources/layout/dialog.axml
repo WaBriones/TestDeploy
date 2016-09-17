@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#DEDEDC"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="300dp"
+    android:minHeight="400dp">
+    <TextView
+        android:text="WELCOME TO ZARK'S BURGER"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/Welcome"
+        android:textColor="#368DEB"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+    <TextView
+        android:text="CUSTOMER SATISFACTION"
+        android:layout_width="wrap_content"
+        android:id="@+id/Satisfaction"
+        android:textColor="#368DEB"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:text="SURVEY"
+        android:layout_width="wrap_content"
+        android:id="@+id/Survey"
+        android:textColor="#368DEB"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/Satisfaction"
+        android:layout_marginTop="10dp" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rel"
+        android:layout_marginTop="200dp">
+        <Button
+            android:text="Let's Get Started!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGetStarted"
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:height="70dp"
+            android:paddingTop="2dp"
+            android:background="@anim/ButtonSignUpStyle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:editable="false"        
+            android:drawableLeft="@drawable/burger" />
+    </RelativeLayout>
+</RelativeLayout>

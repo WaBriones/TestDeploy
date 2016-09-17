@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45+win+wpa81+MonoAndroid10+Xamarin.iOS10+MonoTouch10": {
+      "wrappedProject": "../../DataModels/Data.Models.csproj",
+      "bin": {
+        "assembly": "../../DataModels/obj/{configuration}/DataModels.dll",
+        "pdb": "../../DataModels/obj/{configuration}/DataModels.pdb"
+      }
+    }
+  }
+}

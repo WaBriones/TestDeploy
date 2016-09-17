@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minHeight="25px"
+    android:minWidth="25px"
+    android:padding="10dp"
+    android:background="@anim/ButtonSignUpStyle">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_blue_dark">
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:src="@drawable/zarksburger"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:layout_height="164.0dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="388.5dp"
+                android:layout_weight="1"
+                android:minHeight="25px"
+                android:minWidth="25px"
+                android:padding="10dp">
+                <EditText
+                    android:id="@+id/Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Your Name"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:inputType="text" />
+                <EditText
+                    android:id="@+id/Age"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Your Age"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="110.0dp"
+                    android:layout_marginRight="90dp"
+                    android:inputType="number" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdgrp">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="Male"
+                        android:id="@+id/rbtnMale" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        android:id="@+id/rbtnFemale" />
+                </RadioGroup>
+                <Button
+                    android:id="@+id/Proc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Proceed"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@anim/ButtonSignUpStyle" />
+            </LinearLayout>
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>
