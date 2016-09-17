@@ -10,7 +10,7 @@ using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Runtime;
 
-namespace CustomerSurvey.API
+namespace CustomerSurvery.API
 {
     public class Startup
     {
