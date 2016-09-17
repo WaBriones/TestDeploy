@@ -1,5 +1,10 @@
 {
   "ApplicationInsights": {
     "InstrumentationKey": ""
+  },
+
+  "Data": {
+    "ConnectionString": "Server=tcp:customersurveysql.database.windows.net,1433;Initial Catalog=BackEnd;Persist Security Info=False;User ID=Leo;Password=Leyo1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+    //"ConnectionStringLocal": "Data Source=DESKTOP-M3P6Q8G;Initial Catalog=BackEnd;Integrated Security=True"
   }
 }
