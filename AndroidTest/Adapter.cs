@@ -12,8 +12,7 @@ using Android.Widget;
 
 namespace AndroidTest
 {
-    public class DBHelper
+    class Adapter
     {
-        const string conn = "Server=db4free.net;Port=3306;database=surveydb;User Id=surveydb;Password=surveydb";
     }
 }

@@ -20,10 +20,11 @@ namespace WebAPI2.Controllers
         }
         
         [HttpPost("customerInsert")]
-        public bool Post([FromBody] Customer customer)
+        public SurveyData Post([FromBody] Customer customer)
         {
             var ins = _postObjects.InsertCustomer(customer);
-            return ins;
+            var surveyData = _postObjects.InsertInitilSurveyData(ins);
+            return surveyData;
         }
 
         [HttpGet("getallcustomers")]

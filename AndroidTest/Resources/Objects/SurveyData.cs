@@ -4,11 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataModels
+namespace Data.Models
 {
-   public class SurveyData
+    [Serializable]
+    public class SurveyData
     {
 
+        public int CustomerID { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+        public int SurveyNo { get; set; }
         public string Question1 { get; set; }
         public string Question2 { get; set; }
         public string Question3 { get; set; }

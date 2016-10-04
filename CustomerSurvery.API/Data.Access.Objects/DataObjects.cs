@@ -80,5 +80,50 @@ namespace WebAPI2
             return qInfo;
         }
 
+        public List<Questions> GetQuestions()
+        {
+            var sb = new StringBuilder();
+            var questions = new List<Questions>();
+
+            sb.AppendLine("SELECT questions.QuestionID, questions.Question, choice.ChoicesID, choice.QuestionTypeID, choice.Choices FROM dbo.Questions questions JOIN dbo.Choices choice ON questions.QuestionID = choice.QuestionID");
+
+            using (var cmd = new SqlCommand(sb.ToString(), _dbHelper.SQLConnection))
+            {
+                cmd.Connection.Open();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    Questions lastQuestion = null;
+                    while (reader.HasRows && reader.Read())
+                    {
+
+                        if (lastQuestion == null || (int)reader["QuestionID"] != lastQuestion.QuestionID)
+                        {
+                            var question = new Questions();
+
+                            question.QuestionID = reader["QuestionID"] != null ? (int)reader["QuestionID"] : 0;
+                            question.Question = reader["Question"].ToString();
+
+                            questions.Add(question);
+                            lastQuestion = question;
+                        }
+
+                        var choices = new Choices();
+                        choices.QuestionID = (int)reader["QuestionID"];
+                        choices.ChoicesID = (int)reader["ChoicesID"];
+                        choices.ChoicesLabel = reader["Choices"] != null ? reader["Choices"].ToString() : string.Empty;
+                        choices.QuestionTypeID = (int)reader["QuestionTypeID"];
+
+                        if (lastQuestion.Choices == null)
+                        {
+                            lastQuestion.Choices = new List<Choices>();
+                        }
+
+                        lastQuestion.Choices.Add(choices);
+                    }
+                }
+            }
+            return questions;
+        }
+
     }
 }

@@ -60,7 +60,7 @@
             android:background="@anim/ButtonSignUpStyle"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
-            android:editable="false"        
+            android:editable="false"
             android:drawableLeft="@drawable/burger" />
     </RelativeLayout>
 </RelativeLayout>

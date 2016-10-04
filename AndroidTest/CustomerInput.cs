@@ -5,6 +5,7 @@ using Android.Widget;
 using RestSharp;
 using AndroidTest.Service;
 using Data.Models;
+using Android.Content;
 
 namespace AndroidTest
 {
@@ -37,8 +38,7 @@ namespace AndroidTest
 
         private void Proceed_Click(object sender, EventArgs e)
         {
-           
-          
+                  
             RadioButton sex =FindViewById<RadioButton>(rGender.CheckedRadioButtonId);
             var CustInfo = new Customer()
             {
@@ -51,7 +51,7 @@ namespace AndroidTest
             {
                 Toast.MakeText(this, "Please enter your info!", ToastLength.Long).Show();
             }
-            if (sex.Text == "Male")
+           else if (sex.Text == "Male")
             {
                 CustInfo.Gender = rbtnMale.Text;
             }
@@ -60,12 +60,20 @@ namespace AndroidTest
                 CustInfo.Gender = rbtnFemale.Text;
             }
 
-            var a = Insert(CustInfo);
+            var surveyData = Insert(CustInfo);
+
+            Intent intent = new Intent(this, typeof(Second));
+            
+            intent.PutExtra("CustomerID", surveyData.CustomerID);
+            intent.PutExtra("Age", surveyData.Age);
+            intent.PutExtra("SurveyNo", surveyData.SurveyNo);
+            intent.PutExtra("Gender", surveyData.Gender);
+            intent.PutExtra("Name", surveyData.Name);
 
             StartActivity(typeof(Second));
         }
 
-        public bool Insert(Customer customer)
+        public SurveyData Insert(Customer customer)
         {
             var request = new RestRequest("post/customerInsert")
             {
@@ -76,7 +84,7 @@ namespace AndroidTest
             request.AddJsonBody(customer);
 
             var questService = new CustomerService();
-            var result = questService.ExecuteAsync<bool>(request);
+            var result = questService.ExecuteAsync<SurveyData>(request);
 
             return result.Result;
             

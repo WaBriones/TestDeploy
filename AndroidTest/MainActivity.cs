@@ -4,11 +4,12 @@ using Android.Widget;
 using Android.OS;
 using RestSharp;
 using AndroidTest.Service;
+using System.Collections.Generic;
 using Data.Models;
 
 namespace AndroidTest
 {
-    [Activity(Label = "AndroidTest", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Zark's Survey")]
     public class MainActivity : Activity
     {
 
@@ -16,17 +17,26 @@ namespace AndroidTest
         {
             base.OnCreate(bundle);
 
+                      
 
-            SetContentView(Resource.Layout.dialog);
-            Button Start = FindViewById<Button>(Resource.Id.btnGetStarted);
-            Start.Click += Start_Click;
-         
+            RunOnUiThread(() =>
+            {
+                SetContentView(Resource.Layout.Second);
+
+                Button GetStart = FindViewById<Button>(Resource.Id.btnGetStarted);
+            GetStart.Click += GetStart_Click;
+            });
+
         }
 
-        private void Start_Click(object sender, EventArgs e)
+        private void GetStart_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(CustomerInput));
+           //startActivity(typeof(Second));
+           // StartActivity(typeof(CustomerInput));
         }
+
     }
+
+        
 }
 
