@@ -18,7 +18,7 @@ namespace AndroidTest
     [Activity(Label = "Questionaire", MainLauncher = true, Icon = "@drawable/ZarksBurger")]
     public class Questionaire : Activity
     {
-        LinearLayout mlayout, mroot;
+        LinearLayout mlayout,mroot;
 
         ScrollView mSview;
 
@@ -57,9 +57,13 @@ namespace AndroidTest
                 //mlayout.AddView(mSview);
 
 
+                var questions = new List<Questions>
+                {
+                    
+                };
 
-                List<Questions> questions = GetQuestionsC();
-
+                GetQuestionsC();
+               
 
                 mTblayout = new TableLayout(this);
                 mTblayout.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
@@ -96,51 +100,63 @@ namespace AndroidTest
 
                 mlayout.AddView(mTblayout);
 
-                mSview.AddView(mlayout);
+                var button = new Button(this);
+                button.Text = "FINISH";
+                button.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+                button.Click += Button_Click;
 
+                mlayout.AddView(button);
+                mSview.AddView(mlayout);
 
                 SetContentView(mSview);
 
-                //GetAll();
+               
 
             });
         }
 
-        //public async void GetAll()
-        //{
-        //    var request = new RestRequest("questions/getall");
-        //    var questService = new QuestionService();
-        //    var result = questService.ExecuteAsync<List<Questions>>(request);
-
-        //    foreach (var question in result.Result)
-        //    {
-
-        //        switch (question.QuestionID)
-        //        {                                       
-        //            case 1: textView.Text = string.Format("{0}", question.Question); break;
-        //            case 2: textView.Text = string.Format("{0}", question.Question); break;
-        //            //case 3: Ques3.Text = string.Format("{0}", question.Question); break;
-        //            //case 4: Ques4.Text = string.Format("{0}", question.Question); break;
-        //            //case 5: Ques5.Text = string.Format("{0}", question.Question); break;
-        //            //case 6: Ques6.Text = string.Format("{0}", question.Question); break;
-        //            //case 7: Ques7.Text = string.Format("{0}", question.Question); break;
-        //            //case 8: Ques8.Text = string.Format("{0}", question.Question); break;
-        //            //case 9: Ques9.Text = string.Format("{0}", question.Question); break;
-        //            //case 10: Ques10.Text = string.Format("{0}", question.Question); break;
-
-        //        }
-        //    }
-
-        //}
-
-        public List<Questions> GetQuestionsC()
+        private void Button_Click(object sender, EventArgs e)
         {
-            var request = new RestRequest("questions/GetQuestions");
+            
+        }
+
+        public async void GetAll()
+        {
+            var request = new RestRequest("questions/getall");
             var questService = new QuestionService();
             var result = questService.ExecuteAsync<List<Questions>>(request);
 
-            return result.Result;
+            foreach (var question in result.Result)
+            {
+
+                switch (question.QuestionID)
+                {
+                    case 1: textView.Text = string.Format("{0}", question.Question); break;
+                    case 2: textView.Text = string.Format("{0}", question.Question); break;
+                        //case 3: Ques3.Text = string.Format("{0}", question.Question); break;
+                        //case 4: Ques4.Text = string.Format("{0}", question.Question); break;
+                        //case 5: Ques5.Text = string.Format("{0}", question.Question); break;
+                        //case 6: Ques6.Text = string.Format("{0}", question.Question); break;
+                        //case 7: Ques7.Text = string.Format("{0}", question.Question); break;
+                        //case 8: Ques8.Text = string.Format("{0}", question.Question); break;
+                        //case 9: Ques9.Text = string.Format("{0}", question.Question); break;
+                        //case 10: Ques10.Text = string.Format("{0}", question.Question); break;
+
+                }
+            }
 
         }
+
+        //public async void GetQuestionsC()
+        //{
+        //    var request = new RestRequest("questions/getQuestionsAndChoices");
+        //    var questService = new QuestionService();
+        //    var result = questService.ExecuteAsync<List<Questions>>(request);
+
+        //    foreach(var question in R)
+
+        //   // return result.Result;
+
+        //}
     }
 }

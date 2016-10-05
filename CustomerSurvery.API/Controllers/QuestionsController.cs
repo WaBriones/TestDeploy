@@ -33,6 +33,13 @@ namespace WebAPI2.Controllers
             var question = _dataObjects.GetAllQuestions();
             return question;
         }
+
+        [HttpGet("getQuestionsAndChoices")]
+        public List<Questions> GetQuestions()
+        {
+            var questionAndChoices = _dataObjects.GetQuestions();
+            return questionAndChoices;
+        }
         
     }
 }
