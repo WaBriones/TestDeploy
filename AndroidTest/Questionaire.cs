@@ -11,11 +11,12 @@ using Android.Views;
 using Android.Widget;
 using AndroidTest.Service;
 using Data.Models;
+using Java.Lang;
 using RestSharp;
 
 namespace AndroidTest
 {
-    [Activity(Label = "Questionaire", MainLauncher = true, Icon = "@drawable/ZarksBurger")]
+    [Activity(Label = "Questionaire")]
     public class Questionaire : Activity
     {
         LinearLayout mlayout,mroot;
@@ -25,6 +26,7 @@ namespace AndroidTest
         TableLayout mTblayout;
         RadioGroup rdg;
         TextView textView;
+        EditText edtext;
         RadioButton radioButton;
 
 
@@ -33,130 +35,170 @@ namespace AndroidTest
             base.OnCreate(savedInstanceState);
 
 
-            RunOnUiThread(() =>
+            mlayout = new LinearLayout(this)
+            {
+                Orientation = Orientation.Vertical,
+                LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
+            };
+
+
+            mroot = new LinearLayout(this)
+            {
+                Orientation = Orientation.Vertical,
+                LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
+            };
+
+            mSview = new ScrollView(this)
+            {
+                LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
+            };
+
+            //mlayout.AddView(mSview);
+
+
+            var questions = new List<Questions>
             {
 
-                mlayout = new LinearLayout(this)
+            };
+
+            questions = GetQuestionsC();
+
+
+            mTblayout = new TableLayout(this);
+            mTblayout.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+
+            int i = 0;
+            int z = 0;
+            int e = 0;
+            foreach (var question in questions)
+            {
+
+                textView = new TextView(this);
+                textView.SetTextAppearance(Android.Resource.Attribute.TextAppearanceMedium);
+                textView.Text = question.Question;
+
+                mTblayout.AddView(textView);
+
+                rdg = new RadioGroup(this);
+                rdg.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+                rdg.Id = question.QuestionID;
+
+                foreach (var choice in question.Choices)
                 {
-                    Orientation = Orientation.Vertical,
-                    LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
-                };
-
-
-                mroot = new LinearLayout(this)
-                {
-                    Orientation = Orientation.Vertical,
-                    LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
-                };
-
-                mSview = new ScrollView(this)
-                {
-                    LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
-                };
-
-                //mlayout.AddView(mSview);
-
-
-                var questions = new List<Questions>
-                {
-                    
-                };
-
-                GetQuestionsC();
-               
-
-                mTblayout = new TableLayout(this);
-                mTblayout.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
-
-
-                foreach (var question in questions)
-                {
-
-                    textView = new TextView(this);
-                    textView.Text = question.Question;
-
-                    mTblayout.AddView(textView);
-
-                    rdg = new RadioGroup(this);
-                    rdg.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-
-                    foreach (var choice in question.Choices)
+                    switch (choice.QuestionTypeID)
                     {
-                        switch (choice.QuestionTypeID)
-                        {
-                            case 1:
+                        case 1:
+                            radioButton = new RadioButton(this);
+                            radioButton.Id = choice.ChoicesID;
+                            radioButton.Text = choice.ChoicesLabel;
+                            rdg.AddView(radioButton);
+                            break;
+                        case 2:
+                            edtext = new EditText(this);
+                            edtext.Id = choice.ChoicesID;
+                            edtext.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+                            edtext.SetBackgroundResource(Resource.Animation.edit_text_style);
 
-                                break;
-                            case 2:
-                                radioButton = new RadioButton(this);
-                                radioButton.Text = choice.ChoicesLabel;
-                                rdg.AddView(radioButton);
-                                break;
-                        }
+
+                            mTblayout.AddView(edtext);
+
+
+
+                            break;
                     }
-
-                    mTblayout.AddView(rdg);
                 }
 
-                mlayout.AddView(mTblayout);
+                mTblayout.AddView(rdg);
+            }
 
-                var button = new Button(this);
-                button.Text = "FINISH";
-                button.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-                button.Click += Button_Click;
+            mlayout.AddView(mTblayout);
 
-                mlayout.AddView(button);
-                mSview.AddView(mlayout);
+            var button = new Button(this);
+            button.Text = "FINISH";
+            button.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
+            button.SetBackgroundResource(Resource.Animation.ButtonSignUpStyle);
+            button.Click += Button_Click;
 
-                SetContentView(mSview);
+            mlayout.AddView(button);
+            mSview.AddView(mlayout);
 
-               
-
-            });
+            SetContentView(mSview);
         }
 
-        private void Button_Click(object sender, EventArgs e)
+        public void Button_Click(object sender, EventArgs e)
         {
-            
+
+           
+         
+            getAnswer(mlayout);
+
         }
 
-        public async void GetAll()
+        public void getAnswer(ViewGroup parent)
         {
-            var request = new RestRequest("questions/getall");
-            var questService = new QuestionService();
-            var result = questService.ExecuteAsync<List<Questions>>(request);
+            //RunOnUiThread(() =>
+            //{
+            var datas = new SurveyData();
+            List<SurveyAnswer> toSave = new List<SurveyAnswer>();
 
-            foreach (var question in result.Result)
+            for (int i = 0; i < parent.ChildCount; i++)
             {
-
-                switch (question.QuestionID)
+                View child = parent.GetChildAt(i);
+                if (child is TableLayout)
                 {
-                    case 1: textView.Text = string.Format("{0}", question.Question); break;
-                    case 2: textView.Text = string.Format("{0}", question.Question); break;
-                        //case 3: Ques3.Text = string.Format("{0}", question.Question); break;
-                        //case 4: Ques4.Text = string.Format("{0}", question.Question); break;
-                        //case 5: Ques5.Text = string.Format("{0}", question.Question); break;
-                        //case 6: Ques6.Text = string.Format("{0}", question.Question); break;
-                        //case 7: Ques7.Text = string.Format("{0}", question.Question); break;
-                        //case 8: Ques8.Text = string.Format("{0}", question.Question); break;
-                        //case 9: Ques9.Text = string.Format("{0}", question.Question); break;
-                        //case 10: Ques10.Text = string.Format("{0}", question.Question); break;
+                    var count = (mTblayout as ViewGroup);
+                    for (int x = 0; x < mTblayout.ChildCount; x++)
+                    {
+                        View childrens = mTblayout.GetChildAt(x);
+
+                        if (childrens is RadioGroup)
+                        {
+                            var rdgrp = (RadioGroup) childrens;
+
+                            RadioButton radio = FindViewById<RadioButton>(rdgrp.CheckedRadioButtonId);
+
+
+
+                            toSave.Add(new SurveyAnswer
+                            {
+                                CustomerId = Intent.GetIntExtra("CustomerID", 0),
+                                QuestionId = rdgrp.CheckedRadioButtonId,
+                                ChoiceId = radio.Id
+                            });
+                        }
+
+                    }
 
                 }
             }
 
+            AddSurveyAnswer(toSave);
         }
 
-        //public async void GetQuestionsC()
-        //{
-        //    var request = new RestRequest("questions/getQuestionsAndChoices");
-        //    var questService = new QuestionService();
-        //    var result = questService.ExecuteAsync<List<Questions>>(request);
+        public List<Questions> GetQuestionsC()
+        {
+            var request = new RestRequest("questions/getQuestionsAndChoices");
+            var questService = new QuestionService();
+            var result = questService.ExecuteAsync<List<Questions>>(request);
 
-        //    foreach(var question in R)
+            return result.Result;
 
-        //   // return result.Result;
+        }
 
-        //}
+        private bool AddSurveyAnswer(List<SurveyAnswer> datas)
+        {
+            var request = new RestRequest("post/insertData")
+            {
+                Method = Method.POST,
+                RequestFormat = DataFormat.Json
+
+            };
+            request.AddJsonBody(datas);
+
+            var questService = new CustomerService();
+            var result = questService.ExecuteAsync<bool>(request);
+
+            return result.Result;
+        }
     }
 }

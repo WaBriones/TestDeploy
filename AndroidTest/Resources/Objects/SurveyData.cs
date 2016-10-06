@@ -45,6 +45,16 @@ namespace Data.Models
         public string Question28 { get; set; }
         public string Question29 { get; set; }
         public string Question30 { get; set; }
+        public DateTime DateTime { get; set; }
 
+    }
+
+    public class SurveyAnswer
+    {
+        public int CustomerId { get; set; }
+
+        public int QuestionId { get; set; }
+
+        public int ChoiceId  { get; set; }
     }
 }
