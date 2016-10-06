@@ -194,7 +194,7 @@ namespace AndroidTest
                 Gender = Intent.GetStringExtra("Gender"),
             };
 
-            if (chk1.Text == "" || chk2.Text == "" || chk3.Text == "" || chk4.Text == "" || chk5.Text == "" || chk6.Text == "" || chk7.Text == "" || chk8.Text == "" || chk9.Text == "" || chk10.Text == "" || chk11.Text == "" || chk12.Text == "" || chk13.Text == "" || chk14.Text == "" || )
+            if (chk1.Text == "" || chk2.Text == "" || chk3.Text == "" || chk4.Text == "" || chk5.Text == "" || chk6.Text == "" || chk7.Text == "" || chk8.Text == "" || chk9.Text == "" || chk10.Text == "" || chk11.Text == "" || chk12.Text == "" || chk13.Text == "" || chk14.Text == "")
             {
                 Toast.MakeText(this, "Please answer evrything", ToastLength.Short).Show();
             }
