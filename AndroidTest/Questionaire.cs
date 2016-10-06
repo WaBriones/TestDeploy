@@ -19,9 +19,9 @@ namespace AndroidTest
     [Activity(Label = "Questionaire")]
     public class Questionaire : Activity
     {
-        LinearLayout mlayout,mroot;
+        LinearLayout mlayout;
 
-        ScrollView mSview;
+        //ScrollView mSview;
 
         TableLayout mTblayout;
         RadioGroup rdg;
@@ -34,25 +34,9 @@ namespace AndroidTest
         {
             base.OnCreate(savedInstanceState);
 
+            SetContentView(Resource.Layout.Questionaire);
 
-            mlayout = new LinearLayout(this)
-            {
-                Orientation = Orientation.Vertical,
-                LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
-            };
-
-
-            mroot = new LinearLayout(this)
-            {
-                Orientation = Orientation.Vertical,
-                LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
-            };
-
-            mSview = new ScrollView(this)
-            {
-                LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
-            };
-
+            mlayout = FindViewById<LinearLayout>(Resource.Id.mlayout);
             
             var questions = GetQuestionsC();
 
@@ -107,9 +91,6 @@ namespace AndroidTest
             button.Click += Button_Click;
 
             mlayout.AddView(button);
-            mSview.AddView(mlayout);
-
-            SetContentView(mSview);
         }
 
         public void Button_Click(object sender, EventArgs e)

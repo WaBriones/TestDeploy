@@ -122,6 +122,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Fourth.axml" />
     <AndroidResource Include="Resources\layout\Third.axml" />
+    <AndroidResource Include="Resources\layout\Questionaire.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
