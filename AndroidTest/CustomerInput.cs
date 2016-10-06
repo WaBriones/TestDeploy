@@ -66,7 +66,7 @@ namespace AndroidTest
             intent.PutExtra("Gender", surveyData.Gender);
             intent.PutExtra("Name", surveyData.Name);
 
-            StartActivity(typeof(Questionaire));
+            StartActivity(intent);
         }
 
         public SurveyData Insert(Customer customer)

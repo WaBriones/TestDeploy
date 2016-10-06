@@ -53,29 +53,19 @@ namespace AndroidTest
                 LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent),
             };
 
-            //mlayout.AddView(mSview);
-
-
-            var questions = new List<Questions>
-            {
-
-            };
-
-            questions = GetQuestionsC();
-
+            
+            var questions = GetQuestionsC();
 
             mTblayout = new TableLayout(this);
             mTblayout.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
 
-            int i = 0;
-            int z = 0;
-            int e = 0;
             foreach (var question in questions)
             {
 
                 textView = new TextView(this);
                 textView.SetTextAppearance(Android.Resource.Attribute.TextAppearanceMedium);
                 textView.Text = question.Question;
+                textView.Id = question.QuestionID;
 
                 mTblayout.AddView(textView);
 
@@ -91,6 +81,7 @@ namespace AndroidTest
                             radioButton = new RadioButton(this);
                             radioButton.Id = choice.ChoicesID;
                             radioButton.Text = choice.ChoicesLabel;
+
                             rdg.AddView(radioButton);
                             break;
                         case 2:
@@ -99,11 +90,7 @@ namespace AndroidTest
                             edtext.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
                             edtext.SetBackgroundResource(Resource.Animation.edit_text_style);
 
-
                             mTblayout.AddView(edtext);
-
-
-
                             break;
                     }
                 }
@@ -127,20 +114,15 @@ namespace AndroidTest
 
         public void Button_Click(object sender, EventArgs e)
         {
-
-           
-         
-            getAnswer(mlayout);
-
+            GetAnswer(mlayout);
         }
 
-        public void getAnswer(ViewGroup parent)
+        public void GetAnswer(ViewGroup parent)
         {
-            //RunOnUiThread(() =>
-            //{
+           
             var datas = new SurveyData();
             List<SurveyAnswer> toSave = new List<SurveyAnswer>();
-
+            
             for (int i = 0; i < parent.ChildCount; i++)
             {
                 View child = parent.GetChildAt(i);
@@ -150,21 +132,49 @@ namespace AndroidTest
                     for (int x = 0; x < mTblayout.ChildCount; x++)
                     {
                         View childrens = mTblayout.GetChildAt(x);
+                        
 
                         if (childrens is RadioGroup)
                         {
                             var rdgrp = (RadioGroup) childrens;
 
-                            RadioButton radio = FindViewById<RadioButton>(rdgrp.CheckedRadioButtonId);
-
-
-
-                            toSave.Add(new SurveyAnswer
+                            if (rdgrp.CheckedRadioButtonId > -1)
                             {
-                                CustomerId = Intent.GetIntExtra("CustomerID", 0),
-                                QuestionId = rdgrp.CheckedRadioButtonId,
-                                ChoiceId = radio.Id
-                            });
+                                toSave.Add(new SurveyAnswer
+                                {
+                                    CustomerId = Intent.GetIntExtra("CustomerID", 0),
+                                    QuestionId = rdgrp.Id,
+                                    ChoiceId = rdgrp.CheckedRadioButtonId
+                                });
+                            }
+                        }
+                        else if(childrens is EditText)
+                        {
+                            var previousChildren = mTblayout.GetChildAt(x - 1);
+                            var textBox = (EditText)childrens;
+
+                            if (previousChildren is RadioGroup)
+                            {
+                                var rdgrp = (RadioGroup)previousChildren;
+
+                                toSave.Add(new SurveyAnswer
+                                {
+                                    CustomerId = Intent.GetIntExtra("CustomerID", 0),
+                                    QuestionId = rdgrp.CheckedRadioButtonId == -1 ? rdgrp.Id : 0,
+                                    TextAnswer = textBox.Text
+                                });
+                            }
+                            else
+                            {
+                                var txtView = (TextView) previousChildren;
+
+                                toSave.Add(new SurveyAnswer
+                                {
+                                    CustomerId = Intent.GetIntExtra("CustomerID", 0),
+                                    QuestionId = txtView.Id,
+                                    TextAnswer = textBox.Text
+                                });
+                            }
                         }
 
                     }
