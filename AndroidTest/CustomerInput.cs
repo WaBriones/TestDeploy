@@ -55,7 +55,7 @@ namespace AndroidTest
 
             var surveyData = Insert(CustInfo);
 
-            Intent intent = new Intent(this, typeof(Questionaire));
+            Intent intent = new Intent(this, typeof(Second));
             
             intent.PutExtra("CustomerID", surveyData.CustomerID);
             intent.PutExtra("Age", surveyData.Age);

@@ -39,13 +39,5 @@ namespace WebAPI2.Controllers
             var insdata = _postObjects.InsertData(data);
             return insdata;
         }
-
-        [HttpPost("insertSurveyData")]
-        public bool Post([FromBody] SurveyData data)
-        {
-            //var insdata = _postObjects.InsertData(data);
-            //return insdata;
-        }
-
     }
 }
