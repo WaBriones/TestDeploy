@@ -18,30 +18,21 @@ namespace AndroidTest
     [Activity(Label = "Third")]
     public class Third : Activity
     {
-        TextView Ques11, Ques12, Ques13, Ques14, Ques15, Ques16, Ques17, Ques18, Ques19, Ques20;
+      
 
         RadioButton a11, a12, a13, a14, a15, a16, b11, b12, b13, b14, b15, b16,
            c11, c12, c13, c14, c15, c16, d11, d15, d16, e15, e16;
 
-        EditText edit17, edit18, edit19, edit20;
+        
 
-        RadioGroup Choices11, Choices12, Choices13, Choices14, Choices15, Choices16;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
         //    SetContentView(Resource.Layout.Third);
 
-            Ques11 = FindViewById<TextView>(Resource.Id.Quest11);
-            Ques12 = FindViewById<TextView>(Resource.Id.Quest12);
-            Ques13 = FindViewById<TextView>(Resource.Id.Quest13);
-            Ques14 = FindViewById<TextView>(Resource.Id.Quest14);
-            Ques15 = FindViewById<TextView>(Resource.Id.Quest15);
-            Ques16 = FindViewById<TextView>(Resource.Id.Quest16);
-            Ques17 = FindViewById<TextView>(Resource.Id.Quest17);
-            Ques18 = FindViewById<TextView>(Resource.Id.Quest18);
-            Ques19 = FindViewById<TextView>(Resource.Id.Quest19);
-            Ques20 = FindViewById<TextView>(Resource.Id.Quest20);
+            
 
           
             ///Buttons
@@ -78,17 +69,7 @@ namespace AndroidTest
             e16 = FindViewById<RadioButton>(Resource.Id.e16);
 
             //Radio Groups
-            Choices11 = FindViewById<RadioGroup>(Resource.Id.Choices11);
-            Choices12 = FindViewById<RadioGroup>(Resource.Id.Choices12);
-            Choices13 = FindViewById<RadioGroup>(Resource.Id.Choices13);
-            Choices14 = FindViewById<RadioGroup>(Resource.Id.Choices14);
-            Choices15 = FindViewById<RadioGroup>(Resource.Id.Choices15);
-            Choices16 = FindViewById<RadioGroup>(Resource.Id.Choices16);
-
-            edit17 = FindViewById<EditText>(Resource.Id.Edit_Quest17);
-            edit18 = FindViewById<EditText>(Resource.Id.Edit_Quest18);
-            edit19 = FindViewById<EditText>(Resource.Id.Edit_Quest19);
-            edit20 = FindViewById<EditText>(Resource.Id.Edit_Quest20);
+   
 
 
             GetAll();
@@ -147,6 +128,8 @@ namespace AndroidTest
                 datas.Question12 = chk12.Text;
                 datas.Question13 = chk13.Text;
                 datas.Question14 = chk14.Text;
+                datas.Question15 = chk15.Text;
+                datas.Question16 = chk16.Text;
 
                 
 

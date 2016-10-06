@@ -38,28 +38,25 @@ namespace AndroidTest
 
         private void Proceed_Click(object sender, EventArgs e)
         {
-
+                  
             RadioButton sex = FindViewById<RadioButton>(rGender.CheckedRadioButtonId);
-            var CustInfo = new Customer()
-            {
-                Name = txtName.Text,
-                Age = int.Parse(txtAge.Text)
-
-            };
-
+            var CustInfo = new Customer();
+               
             if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtAge.Text)|| string.IsNullOrWhiteSpace(rbtnMale.Text)|| string.IsNullOrWhiteSpace(rbtnFemale.Text))
             {
                 Toast.MakeText(this, "Please enter your info!", ToastLength.Long).Show();
             }
             else
             {
+                CustInfo.Name = txtName.Text;
+                CustInfo.Age = int.Parse(txtAge.Text);
                 CustInfo.Gender = sex.Text;
             }
 
             var surveyData = Insert(CustInfo);
 
             Intent intent = new Intent(this, typeof(Questionaire));
-
+            
             intent.PutExtra("CustomerID", surveyData.CustomerID);
             intent.PutExtra("Age", surveyData.Age);
             intent.PutExtra("SurveyNo", surveyData.SurveyNo);
@@ -83,7 +80,7 @@ namespace AndroidTest
             var result = questService.ExecuteAsync<SurveyData>(request);
 
             return result.Result;
-
+            
         }
 
     }

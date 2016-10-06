@@ -142,54 +142,28 @@ namespace AndroidTest
 
             };
 
-            if (edit21.Text == "" | edit22.Text == "" | edit23.Text == "" | a24.Text == "" | a25.Text == "" | a26.Text == "" |
-                a27.Text == "" | a28.Text == "" | a29.Text == "" | a30.Text == "" | b24.Text == "" | b25.Text == "" | b26.Text == "" |
-                b27.Text == "" | b28.Text == "" | b29.Text == "" | b30.Text == "" | c24.Text == "" | c25.Text == "" | c26.Text == "" |
-                c27.Text == "" | c28.Text == "" | c29.Text == "" | d25.Text == "" | d27.Text == "" | d28.Text == "" | d29.Text == "" | e25.Text == "" |
-                e27.Text == "" | e28.Text == "" | e29.Text == "")
+            if (edit21.Text == "" || edit22.Text == "" || edit23.Text == "" || a24.Text == "" || a25.Text == "" || a26.Text == "" ||
+                a27.Text == "" || a28.Text == "" || a29.Text == "" || a30.Text == "" || b24.Text == "" || b25.Text == "" || b26.Text == "" ||
+                b27.Text == "" || b28.Text == "" || b29.Text == "" || b30.Text == "" || c24.Text == "" || c25.Text == "" || c26.Text == "" ||
+                c27.Text == "" || c28.Text == "" || c29.Text == "" || d25.Text == "" || d27.Text == "" || d28.Text == "" || d29.Text == "" || e25.Text == "" ||
+                e27.Text == "" || e28.Text == "" || e29.Text == "")
             {
-                Toast.MakeText(this, "Please answer everthing", ToastLength.Short).Show();
+                Toast.MakeText(this, "Please answer everthing...", ToastLength.Short).Show();
 
             }
 
             else
             {
-                if (a24.Checked) { datas.Question24 = a24.Text; }
-                else if (b24.Checked) { datas.Question24 = a24.Text; }
-                else if (c24.Checked) { datas.Question24 = a24.Text; }
-
-                if (a25.Checked) { datas.Question25 = a25.Text; }
-                else if (b25.Checked) { datas.Question25 = b25.Text;}
-                else if (c25.Checked) { datas.Question25 = c25.Text;}
-                else if (d25.Checked) { datas.Question25 = d25.Text; }
-                else if (e25.Checked) { datas.Question25 = e25.Text;}
-
-                if (a26.Checked) { datas.Question26 = a26.Text; }
-                else if (b26.Checked) { datas.Question26 = b26.Text; }
-                else if (b26.Checked) { datas.Question26 = c26.Text; }
-
-                     if (a27.Checked) { datas.Question27 = a27.Text; }
-                else if (b27.Checked) { datas.Question27 = b27.Text; }
-                else if (c27.Checked) { datas.Question27 = c27.Text; }
-                else if (d27.Checked) { datas.Question27 = d27.Text; }
-                else if (e27.Checked) { datas.Question27 = e27.Text; }
-
-                     if (a28.Checked) { datas.Question28 = a28.Text; }
-                else if (b28.Checked) { datas.Question28 = b28.Text; }
-                else if (c28.Checked) { datas.Question28 = c28.Text; }
-                else if (d28.Checked) { datas.Question28 = d28.Text; }
-                else if (e28.Checked) { datas.Question28 = e28.Text; }
-
-
-                      if (a29.Checked) { datas.Question29 = a29.Text; }
-                else if (b29.Checked) { datas.Question29 = b29.Text; }
-                else if (c29.Checked) { datas.Question29 = c29.Text; }
-                else if (d29.Checked) { datas.Question29 = d29.Text; }
-                else if (e29.Checked) { datas.Question29 = e29.Text; }
-
-                      if (a30.Checked) { datas.Question29 = a30.Text; }
-                else if (b30.Checked) { datas.Question29 = b30.Text; }
-
+                datas.Question21 = edit21.Text;
+                datas.Question22 = edit22.Text;
+                datas.Question23 = edit23.Text;
+                datas.Question24 = chk24.Text;
+                datas.Question25 = chk25.Text;
+                datas.Question26 = chk26.Text;
+                datas.Question27 = chk27.Text;
+                datas.Question28 = chk28.Text;
+                datas.Question29 = chk29.Text;
+                datas.Question30 = chk30.Text;
             }
             var sf = surveyData(datas);
 
