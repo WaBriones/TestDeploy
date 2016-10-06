@@ -79,6 +79,7 @@
     <Compile Include="Adapter.cs" />
     <Compile Include="CustomerInput.cs" />
     <Compile Include="Dialog.cs" />
+    <Compile Include="Fourth.cs" />
     <Compile Include="last.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Questionaire.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\QuestionService.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="Third.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -118,6 +120,8 @@
     <AndroidResource Include="Resources\layout\Questions.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\Fourth.axml" />
+    <AndroidResource Include="Resources\layout\Third.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
