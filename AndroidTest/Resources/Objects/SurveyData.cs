@@ -48,4 +48,13 @@ namespace Data.Models
         public DateTime DateTime { get; set; }
 
     }
+
+    public class SurveyAnswer
+    {
+        public int CustomerId { get; set; }
+
+        public int QuestionId { get; set; }
+
+        public int ChoiceId  { get; set; }
+    }
 }
