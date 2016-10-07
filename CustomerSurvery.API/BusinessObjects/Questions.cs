@@ -14,6 +14,5 @@ namespace CustomerSurvery.API.BusinessObjects
 
         public List<Choices> Choices {get; set;}
 
-
     }
 }

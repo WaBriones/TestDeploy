@@ -52,21 +52,21 @@ namespace AndroidTest
                 CustInfo.Age = int.Parse(txtAge.Text);
                 CustInfo.Gender = sex.Text;
             }
-
+            int d = 0;
             var surveyData = Insert(CustInfo);
 
             Intent intent = new Intent(this, typeof(Second));
             
             intent.PutExtra("CustomerID", surveyData.CustomerID);
             intent.PutExtra("Age", surveyData.Age);
-            intent.PutExtra("SurveyNo", surveyData.SurveyNo);
+           // intent.PutExtra("SurveyNo", surveyData.SurveyNo);
             intent.PutExtra("Gender", surveyData.Gender);
             intent.PutExtra("Name", surveyData.Name);
 
             StartActivity(intent);
         }
 
-        public SurveyData Insert(Customer customer)
+        public Customer Insert(Customer customer)
         {
             var request = new RestRequest("post/customerInsert")
             {
@@ -77,10 +77,10 @@ namespace AndroidTest
             request.AddJsonBody(customer);
 
             var questService = new CustomerService();
-            var result = questService.ExecuteAsync<SurveyData>(request);
+            var result = questService.ExecuteAsync<Customer>(request);
 
             return result.Result;
-            
+
         }
 
     }

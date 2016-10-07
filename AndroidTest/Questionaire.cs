@@ -40,49 +40,55 @@ namespace AndroidTest
             
             var questions = GetQuestionsC();
 
-            mTblayout = new TableLayout(this);
-            mTblayout.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+            //  mTblayout = FindViewById<TableLayout>(Resource.Id.mTbllayout);
+            textView = new TextView(this);
+            textView.SetTextAppearance(Android.Resource.Attribute.TextAppearanceMedium);
+            textView.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
+            textView.Text = "Wawa";
+            textView.Id = 1;
 
-            foreach (var question in questions)
-            {
+            mlayout.AddView(textView);
+            //foreach (var question in questions)
+            //{
 
-                textView = new TextView(this);
-                textView.SetTextAppearance(Android.Resource.Attribute.TextAppearanceMedium);
-                textView.Text = question.Question;
-                textView.Id = question.QuestionID;
+            //    textView = new TextView(this);
+            //    textView.SetTextAppearance(Android.Resource.Attribute.TextAppearanceMedium);
+            //    textView.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
+            //    textView.Text = question.Question;
+            //    textView.Id = question.QuestionID;
 
-                mTblayout.AddView(textView);
+            //    mlayout.AddView(textView);
 
-                rdg = new RadioGroup(this);
-                rdg.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-                rdg.Id = question.QuestionID;
+            //    //rdg = new RadioGroup(this);
+            //    //rdg.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+            //    //rdg.Id = question.QuestionID;
 
-                foreach (var choice in question.Choices)
-                {
-                    switch (choice.QuestionTypeID)
-                    {
-                        case 1:
-                            radioButton = new RadioButton(this);
-                            radioButton.Id = choice.ChoicesID;
-                            radioButton.Text = choice.ChoicesLabel;
+            //    //foreach (var choice in question.Choices)
+            //    //{
+            //    //    switch (choice.QuestionTypeID)
+            //    //    {
+            //    //        case 1:
+            //    //            radioButton = new RadioButton(this);
+            //    //            radioButton.Id = choice.ChoicesID;
+            //    //            radioButton.Text = choice.ChoicesLabel;
 
-                            rdg.AddView(radioButton);
-                            break;
-                        case 2:
-                            edtext = new EditText(this);
-                            edtext.Id = choice.ChoicesID;
-                            edtext.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-                            edtext.SetBackgroundResource(Resource.Animation.edit_text_style);
+            //    //            rdg.AddView(radioButton);
+            //    //            break;
+            //    //        case 2:
+            //    //            edtext = new EditText(this);
+            //    //            edtext.Id = choice.ChoicesID;
+            //    //            edtext.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+            //    //            edtext.SetBackgroundResource(Resource.Animation.edit_text_style);
 
-                            mTblayout.AddView(edtext);
-                            break;
-                    }
-                }
+            //    //            mTblayout.AddView(edtext);
+            //    //            break;
+            //    //    }
+            //    //}
 
-                mTblayout.AddView(rdg);
-            }
+            //    //mTblayout.AddView(rdg);
+            //}
 
-            mlayout.AddView(mTblayout);
+            //mlayout.AddView(mTblayout);
 
             var button = new Button(this);
             button.Text = "FINISH";

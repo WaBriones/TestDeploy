@@ -189,21 +189,23 @@ namespace AndroidTest
             {
                 Name = Intent.GetStringExtra("Name"),
                 CustomerID = Intent.GetIntExtra("CustomerID", 0),
-                SurveyNo = Intent.GetIntExtra("SurveyNo", 0),
+                //SurveyNo = Intent.GetIntExtra("SurveyNo", 0),
                 Age = Intent.GetIntExtra("Age", 0),
                 Gender = Intent.GetStringExtra("Gender"),
             };
 
-            if (chk1.Text == "" || chk2.Text == "" || chk3.Text == "" ||
-                chk4.Text == "" || chk5.Text == "" || chk6.Text == "" ||
-                chk7.Text == "" || chk8.Text == "" || chk9.Text == "" ||
-                chk10.Text == "" || chk11.Text == "" || chk12.Text == "" ||
-                chk13.Text == "" || chk14.Text == "")
-            {
-                Toast.MakeText(this, "Please answer evrything", ToastLength.Short).Show();
-            }
-            else
-            {
+            //if (chk1.Text == "" || chk2.Text == "" || chk3.Text == "" ||
+            //    chk4.Text == "" || chk5.Text == "" || chk6.Text == "" ||
+            //    chk7.Text == "" || chk8.Text == "" || chk9.Text == "" ||
+            //    chk10.Text == "" || chk11.Text == "" || chk12.Text == "" ||
+            //    chk13.Text == "" || chk14.Text == "" || chk15.Text == "" ||
+            //    chk16.Text == "" || chk24.Text == "" || chk25.Text == "" ||
+            //    chk26.Text == "" || chk27.Text == "" || chk28.Text == "" || chk29.Text == "" || chk30.Text == "")
+            //{
+            //    Toast.MakeText(this, "Please answer evrything", ToastLength.Short).Show();
+            //}
+            //else
+            //{
                 datas.Question1 = chk1.Text;
                 datas.Question2 = chk2.Text;
                 datas.Question3 = chk3.Text;
@@ -237,7 +239,8 @@ namespace AndroidTest
                 datas.Question29 = chk29.Text;
                 datas.Question30 = chk30.Text;
 
-            }
+                datas.DateTime = DateTime.Now.ToString("MM-dd-yyyy");
+           // }
 
             var res = surveyData(datas);
 
@@ -246,7 +249,7 @@ namespace AndroidTest
 
         private bool surveyData(SurveyData datas)
         {
-            var request = new RestRequest("post/insertData")
+            var request = new RestRequest("post/insertAll")
             {
                 Method = Method.POST,
                 RequestFormat = DataFormat.Json

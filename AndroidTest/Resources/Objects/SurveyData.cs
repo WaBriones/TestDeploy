@@ -45,7 +45,7 @@ namespace Data.Models
         public string Question28 { get; set; }
         public string Question29 { get; set; }
         public string Question30 { get; set; }
-        public DateTime DateTime { get; set; }
+        public string DateTime { get; set; }
 
     }
 
